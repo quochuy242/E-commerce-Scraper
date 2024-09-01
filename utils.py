@@ -1,15 +1,21 @@
+import asyncio
 import json
+from loguru import logger
 from typing import Dict, List
 
 import httpx
 from pydantic import BaseModel
 from selectolax.parser import HTMLParser
+from selenium import webdriver
+from tqdm import tqdm
 
 HEADER = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.0"
 }
 
 ALL_PRODUCT_URL = "https://www.nike.com/vn/w/mens-shoes-nik1zy7ok"
+NUM_SCROLL: int | str = "all"
+LOG_FILE = "./log/nike_scraper.txt"
 
 
 class Product(BaseModel):
@@ -20,7 +26,38 @@ class Product(BaseModel):
     image_url: Dict[str, str]
 
 
-async def get_html(url: str, client: httpx.AsyncClient) -> str:
+logger.add(LOG_FILE, format="{time} {level} {message}", level="INFO")
+
+
+async def scroll_website(driver: webdriver.Chrome, num_scroll: int | str) -> None:
+    """
+    Scroll website to load all products
+    """
+    last_height = driver.execute_script("return document.body.scrollHeight")
+
+    if isinstance(num_scroll, str) and num_scroll == "str":
+        while True:
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            await asyncio.sleep(2)
+            new_height = driver.execute_script("return document.body.scrollHeight")
+            if new_height == last_height:
+                logger.info("Scroll to bottom")
+                break
+            last_height = new_height
+    else:
+        for _ in range(num_scroll):
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            await asyncio.sleep(2)
+
+
+async def get_html_from_driver(driver: webdriver.Chrome) -> HTMLParser:
+    """
+    Parsing html from website driver
+    """
+    return HTMLParser(driver.page_source)
+
+
+async def get_html_from_url(url: str, client: httpx.AsyncClient) -> str:
     """
     Get HTML from url
 
@@ -35,7 +72,7 @@ async def get_html(url: str, client: httpx.AsyncClient) -> str:
     try:
         resp.raise_for_status()
     except httpx.HTTPStatusError:
-        print(f"Error while requesting: {resp.status_code}")
+        logger.warning(f"Error while requesting: {resp.status_code}")
         return ""
     return HTMLParser(resp.text)
 
@@ -44,7 +81,7 @@ def get_product_url(html: HTMLParser) -> List[str]:
     products = html.css("div.product-card__body")
     return [
         product.css_first("a.product-card__link-overlay").attributes["href"]
-        for product in products
+        for product in tqdm(products, desc="Getting the url of each product")
     ]
 
 
@@ -84,7 +121,7 @@ async def extract_product(url: str, client: httpx.AsyncClient) -> Product:
     Returns:
         Product: returning product information
     """
-    html = await get_html(url, client)
+    html = await get_html_from_url(url, client)
     return Product(
         title=html.css_first("h1#pdp_product_title").text(),
         subtitle=html.css_first("h1#pdp_product_subtitle").text(),

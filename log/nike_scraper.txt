@@ -1,0 +1,4 @@
+2024-09-01T22:14:03.848441+0700 INFO ____Starting scraping at 2024-09-01 22:14:03.848421____
+2024-09-01T22:20:11.949451+0700 INFO ____Starting scraping at 2024-09-01 22:20:11.949436____
+2024-09-01T22:20:21.161498+0700 SUCCESS Data saved to nike_products.json
+2024-09-01T22:20:21.161713+0700 SUCCESS Execution time: 9.21 seconds - 24 products
