@@ -2,3 +2,201 @@
 2024-09-01T22:20:11.949451+0700 INFO ____Starting scraping at 2024-09-01 22:20:11.949436____
 2024-09-01T22:20:21.161498+0700 SUCCESS Data saved to nike_products.json
 2024-09-01T22:20:21.161713+0700 SUCCESS Execution time: 9.21 seconds - 24 products
+2024-09-01T22:23:16.616081+0700 INFO ____Starting scraping at 2024-09-01 22:23:16.616065____
+2024-09-01T22:23:23.716179+0700 SUCCESS Data saved to nike_products.json
+2024-09-01T22:23:23.716438+0700 SUCCESS Execution time: 7.10 seconds - 24 products
+2024-09-01T22:25:05.690858+0700 INFO ____Starting scraping at 2024-09-01 22:25:05.690843____
+2024-09-01T22:29:02.129441+0700 INFO ____Starting scraping at 2024-09-01 22:29:02.129420____
+2024-09-01T22:30:46.680420+0700 INFO ____Starting scraping at 2024-09-01 22:30:46____
+2024-09-01T22:31:17.343503+0700 INFO ____Starting scraping at 2024-09-01 22:31:17____
+2024-09-01T22:31:26.704874+0700 INFO Scroll to bottom
+2024-09-01T22:31:27.019815+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.020319+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.020693+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.021057+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.021371+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.021666+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.024938+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.026577+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.026912+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.027167+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.027355+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.027532+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.028888+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.029122+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.029749+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.030025+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.045087+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.045933+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.046209+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.046369+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.046507+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.046688+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.046857+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.047013+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.048660+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.048875+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.049046+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.050261+0700 WARNING Error while requesting: 403
+2024-09-01T22:31:27.051454+0700 WARNING Error while requesting: 403
+2024-09-01T22:37:02.190107+0700 INFO ____Starting scraping at 2024-09-01 22:37:02____
+2024-09-01T22:37:14.344089+0700 INFO Scroll to bottom
+2024-09-01T22:37:17.298999+0700 INFO Data saved to nike_products.json
+2024-09-01T22:37:17.299198+0700 INFO Execution time: 15.11 seconds - 48 products
+2024-09-01T22:40:20.107185+0700 INFO ____Starting scraping at 2024-09-01 22:40:20____
+2024-09-01T22:40:20.712475+0700 INFO Scrolling 1 times
+2024-09-01T22:40:22.719034+0700 INFO Scroll to bottom
+2024-09-01T22:40:22.750536+0700 INFO Data saved to nike_products.json
+2024-09-01T22:40:22.750726+0700 INFO Execution time: 2.64 seconds - 0 products
+2024-09-01T22:40:46.005175+0700 INFO ____Starting scraping at 2024-09-01 22:40:46____
+2024-09-01T22:40:46.684207+0700 INFO Scrolling 1 times
+2024-09-01T22:40:48.692027+0700 INFO Scroll to bottom
+2024-09-01T22:40:48.723693+0700 INFO Data saved to nike_products.json
+2024-09-01T22:40:48.723877+0700 INFO Execution time: 2.72 seconds - 0 products
+2024-09-01T22:40:53.633984+0700 INFO ____Starting scraping at 2024-09-01 22:40:53____
+2024-09-01T22:40:54.355347+0700 INFO Scrolling 1 times
+2024-09-01T22:40:56.368680+0700 INFO Scrolling 2 times
+2024-09-01T22:40:58.375478+0700 INFO Scroll to bottom
+2024-09-01T22:40:58.406301+0700 INFO Data saved to nike_products.json
+2024-09-01T22:40:58.406475+0700 INFO Execution time: 4.77 seconds - 0 products
+2024-09-01T22:41:05.190330+0700 INFO ____Starting scraping at 2024-09-01 22:41:05____
+2024-09-01T22:41:05.919426+0700 INFO Scrolling 1 times
+2024-09-01T22:41:07.926340+0700 INFO Scroll to bottom
+2024-09-01T22:41:07.955760+0700 INFO Data saved to nike_products.json
+2024-09-01T22:41:07.955942+0700 INFO Execution time: 2.77 seconds - 0 products
+2024-09-01T22:41:10.040319+0700 INFO ____Starting scraping at 2024-09-01 22:41:10____
+2024-09-01T22:41:10.733125+0700 INFO Scrolling 1 times
+2024-09-01T22:41:12.741794+0700 INFO Scroll to bottom
+2024-09-01T22:41:12.773840+0700 INFO Data saved to nike_products.json
+2024-09-01T22:41:12.774022+0700 INFO Execution time: 2.73 seconds - 0 products
+2024-09-01T22:41:19.650342+0700 INFO ____Starting scraping at 2024-09-01 22:41:19____
+2024-09-01T22:41:20.409535+0700 INFO Scrolling 1 times
+2024-09-01T22:41:22.418364+0700 INFO Scroll to bottom
+2024-09-01T22:41:22.447790+0700 INFO Data saved to nike_products.json
+2024-09-01T22:41:22.447989+0700 INFO Execution time: 2.80 seconds - 0 products
+2024-09-01T22:43:09.263633+0700 INFO ____Starting scraping at 2024-09-01 22:43:09____
+2024-09-01T22:43:09.783242+0700 INFO Scrolling 1 times
+2024-09-01T22:43:14.799110+0700 INFO Scrolling 2 times
+2024-09-01T22:43:19.808284+0700 INFO Scroll to bottom
+2024-09-01T22:43:19.838388+0700 SUCCESS Data saved to nike_products.json
+2024-09-01T22:43:19.838563+0700 SUCCESS Execution time: 10.57 seconds - 0 products
+2024-09-01T22:43:34.572060+0700 INFO ____Starting scraping at 2024-09-01 22:43:34____
+2024-09-01T22:43:39.489236+0700 INFO Scrolling 1 times
+2024-09-01T22:43:44.505975+0700 INFO Scrolling 2 times
+2024-09-01T22:43:49.517940+0700 INFO Scroll to bottom
+2024-09-01T22:43:49.701002+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.703373+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.708325+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.713988+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.714621+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.714963+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.716138+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.717642+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.717995+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.723970+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.724294+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.725685+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.725984+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.726268+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.726578+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.727106+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.727490+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.729625+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.730207+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.730919+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.732266+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.732535+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.733172+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.733863+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.735653+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:49.747677+0700 WARNING Error while requesting: 403
+2024-09-01T22:43:51.097818+0700 SUCCESS Data saved to nike_products.json
+2024-09-01T22:43:51.098008+0700 SUCCESS Execution time: 16.53 seconds - 48 products
+2024-09-01T23:01:47.216072+0700 INFO ____Starting scraping at 2024-09-01 23:01:47____
+2024-09-01T23:02:01.238090+0700 INFO Scrolling 1 times
+2024-09-01T23:02:06.255141+0700 INFO Scrolling 2 times
+2024-09-01T23:02:11.267055+0700 INFO Scroll to bottom
+2024-09-01T23:02:11.494791+0700 WARNING Error while requesting https://www.nike.com/vn/t/air-max-2013-shoes-ptfbp0/HF3660-100: 403
+2024-09-01T23:02:11.506056+0700 WARNING Error while requesting https://www.nike.com/vn/t/giannis-freak-6-ep-basketball-shoes-6xCSxx/FV1294-100: 403
+2024-09-01T23:02:11.517776+0700 WARNING Error while requesting https://www.nike.com/vn/t/air-max-90-shoes-TZw0wv/HM0628-001: 403
+2024-09-01T23:02:11.519687+0700 WARNING Error while requesting https://www.nike.com/vn/t/dunk-low-retro-shoes-bCzchX/DV0833-108: 403
+2024-09-01T23:02:14.631762+0700 SUCCESS Data saved to nike_products.json
+2024-09-01T23:02:14.631973+0700 SUCCESS Execution time: 27.42 seconds - 48 products
+2024-09-01T23:05:09.891277+0700 INFO ____Starting scraping at 2024-09-01 23:05:09____
+2024-09-01T23:05:10.456509+0700 INFO Scrolling 0 times
+2024-09-01T23:05:15.468082+0700 INFO Scrolling 1 times
+2024-09-01T23:05:20.478523+0700 INFO Scrolling 2 times
+2024-09-01T23:05:25.489295+0700 INFO Scrolling 3 times
+2024-09-01T23:05:30.498898+0700 INFO Scrolling 4 times
+2024-09-01T23:05:35.510030+0700 INFO Scrolling 5 times
+2024-09-01T23:05:40.519166+0700 INFO Scrolling 6 times
+2024-09-01T23:05:45.529054+0700 INFO Scrolling 7 times
+2024-09-01T23:05:50.541161+0700 INFO Scrolling 8 times
+2024-09-01T23:05:55.552259+0700 INFO Scrolling 9 times
+2024-09-01T23:06:00.562331+0700 INFO Scrolling 10 times
+2024-09-01T23:06:05.573719+0700 INFO Scrolling 11 times
+2024-09-01T23:06:10.606301+0700 SUCCESS Data saved to nike_products.json
+2024-09-01T23:06:10.606554+0700 SUCCESS Execution time: 60.72 seconds - 0 products
+2024-09-01T23:07:15.215737+0700 INFO ____Starting scraping at 2024-09-01 23:07:15____
+2024-09-01T23:07:15.961566+0700 INFO Scrolling 1 times
+2024-09-01T23:07:20.973708+0700 INFO Scrolling 2 times
+2024-09-01T23:07:25.985566+0700 INFO Scrolling 3 times
+2024-09-01T23:07:30.997393+0700 INFO Scrolling 4 times
+2024-09-01T23:14:50.389015+0700 INFO ____Starting scraping at 2024-09-01 23:14:50____
+2024-09-01T23:14:53.940998+0700 INFO Scrolling 1 times
+2024-09-01T23:14:58.955666+0700 INFO Scrolling 2 times
+2024-09-01T23:15:08.560007+0700 INFO ____Starting scraping at 2024-09-01 23:15:08____
+2024-09-01T23:15:11.807915+0700 INFO Scrolling 1 times
+2024-09-01T23:15:16.820114+0700 INFO Scrolling 2 times
+2024-09-01T23:15:21.829425+0700 INFO Scrolling 3 times
+2024-09-01T23:15:29.348005+0700 SUCCESS Data saved to nike_products.json
+2024-09-01T23:15:29.348219+0700 SUCCESS Execution time: 20.79 seconds - 48 products
+2024-09-01T23:15:59.128376+0700 INFO ____Starting scraping at 2024-09-01 23:15:59____
+2024-09-01T23:15:59.561115+0700 INFO Scrolling 1 times
+2024-09-01T23:16:04.572426+0700 INFO Scrolling 2 times
+2024-09-01T23:16:09.581563+0700 INFO Scrolling 3 times
+2024-09-01T23:16:14.592195+0700 INFO Scrolling 4 times
+2024-09-01T23:16:19.602720+0700 INFO Scrolling 5 times
+2024-09-01T23:16:24.611667+0700 INFO Scrolling 6 times
+2024-09-01T23:16:29.646272+0700 SUCCESS Data saved to nike_products.json
+2024-09-01T23:16:29.646457+0700 SUCCESS Execution time: 30.52 seconds - 0 products
+2024-09-01T23:17:06.224264+0700 INFO ____Starting scraping at 2024-09-01 23:17:06____
+2024-09-01T23:17:06.849420+0700 INFO Scrolling 1 times
+2024-09-01T23:17:11.858655+0700 INFO Scrolling 2 times
+2024-09-01T23:17:31.070579+0700 INFO ____Starting scraping at 2024-09-01 23:17:31____
+2024-09-01T23:17:31.697434+0700 INFO Scrolling 1 times
+2024-09-01T23:18:04.508979+0700 INFO ____Starting scraping at 2024-09-01 23:18:04____
+2024-09-01T23:18:22.541004+0700 INFO Scrolling 1 times
+2024-09-01T23:18:27.557637+0700 INFO Scrolling 2 times
+2024-09-01T23:18:32.569591+0700 INFO Scroll to bottom
+2024-09-01T23:18:32.823770+0700 WARNING Error while requesting https://www.nike.com/vn/t/zoom-vomero-5-shoes-XL3L3L/HJ7247-099: 403
+2024-09-01T23:18:32.826743+0700 WARNING Error while requesting https://www.nike.com/vn/t/pegasus-41-electric-road-running-shoes-CNd0pW/FV2229-900: 403
+2024-09-01T23:18:32.827060+0700 WARNING Error while requesting https://www.nike.com/vn/t/giannis-freak-6-ep-basketball-shoes-ThjqbM/FV1293-100: 403
+2024-09-01T23:18:32.828392+0700 WARNING Error while requesting https://www.nike.com/vn/t/giannis-freak-6-ep-basketball-shoes-Wqj5B6/FJ7807-102: 403
+2024-09-01T23:18:32.830847+0700 WARNING Error while requesting https://www.nike.com/vn/t/infinityrn-4-road-running-shoes-t0lXBH/HJ7669-276: 403
+2024-09-01T23:18:32.834427+0700 WARNING Error while requesting https://www.nike.com/vn/t/jordan-spizike-low-shoes-ztFqnB/HM3712-164: 403
+2024-09-01T23:18:32.835312+0700 WARNING Error while requesting https://www.nike.com/vn/t/infinityrn-4-electric-road-running-shoes-FkGQcG/FV2299-900: 403
+2024-09-01T23:18:32.840482+0700 WARNING Error while requesting https://www.nike.com/vn/t/gt-jump-2-electric-basketball-shoes-hXcfqL/FV3411-900: 403
+2024-09-01T23:18:32.840860+0700 WARNING Error while requesting https://www.nike.com/vn/t/pegasus-41-road-running-shoes-RZm89S/FD2722-401: 403
+2024-09-01T23:18:32.841582+0700 WARNING Error while requesting https://www.nike.com/vn/t/air-max-1-essential-shoes-X2M7M6/HF1516-200: 403
+2024-09-01T23:18:32.845386+0700 WARNING Error while requesting https://www.nike.com/vn/t/jordan-stay-loyal-3-shoes-GNHN2X/FB1396-002: 403
+2024-09-01T23:18:32.845732+0700 WARNING Error while requesting https://www.nike.com/vn/t/pegasus-trail-5-gore-tex-waterproof-trail-running-shoes-3LbCWQ/FQ0908-300: 403
+2024-09-01T23:18:32.845974+0700 WARNING Error while requesting https://www.nike.com/vn/t/air-max-dn-se-shoes-MZ6hPZ/HM0810-401: 403
+2024-09-01T23:18:32.846195+0700 WARNING Error while requesting https://www.nike.com/vn/t/air-force-1-07-shoes-WrLlWX/CW2288-111: 403
+2024-09-01T23:18:32.846444+0700 WARNING Error while requesting https://www.nike.com/vn/t/dunk-low-retro-shoes-69h36X/DV0831-111: 403
+2024-09-01T23:18:32.849553+0700 WARNING Error while requesting https://www.nike.com/vn/t/air-jordan-1-low-flyease-easy-on-off-shoes-SsT4HK/DM1206-071: 403
+2024-09-01T23:18:32.850220+0700 WARNING Error while requesting https://www.nike.com/vn/t/killshot-2-shoes-pXS3hB/FQ8903-200: 403
+2024-09-01T23:18:32.850807+0700 WARNING Error while requesting https://www.nike.com/vn/t/pegasus-41-road-running-shoes-BmBnqn/HJ7331-276: 403
+2024-09-01T23:18:32.852390+0700 WARNING Error while requesting https://www.nike.com/vn/t/court-vision-low-shoes-q0sr67/FQ8075-133: 403
+2024-09-01T23:18:32.852813+0700 WARNING Error while requesting https://www.nike.com/vn/t/pegasus-easyon-blueprint-road-running-shoes-qsKFJB/HM0374-900: 403
+2024-09-01T23:18:32.853066+0700 WARNING Error while requesting https://www.nike.com/vn/t/court-vision-low-next-nature-shoes-N2fFHb/DH2987-113: 403
+2024-09-01T23:18:32.854071+0700 WARNING Error while requesting https://www.nike.com/vn/t/giannis-freak-6-ep-basketball-shoes-6xCSxx/FV1294-100: 403
+2024-09-01T23:18:32.857237+0700 WARNING Error while requesting https://www.nike.com/vn/t/jordan-stadium-90-shoes-Jn6ZH4/DX4397-003: 403
+2024-09-01T23:18:32.857667+0700 WARNING Error while requesting https://www.nike.com/vn/t/sb-janoski-slip-skate-shoes-BxN7w6/FN5893-500: 403
+2024-09-01T23:18:32.858000+0700 WARNING Error while requesting https://www.nike.com/vn/t/luka-3-pf-motorsport-basketball-shoes-XXCxmh/FQ1285-170: 403
+2024-09-01T23:18:32.861909+0700 WARNING Error while requesting https://www.nike.com/vn/t/air-jordan-1-mid-shoes-SQf7DM/DQ8426-071: 403
+2024-09-01T23:18:32.868186+0700 WARNING Error while requesting https://www.nike.com/vn/t/invincible-3-electric-road-running-shoes-nhn3wf/FV2304-900: 403
+2024-09-01T23:18:32.873297+0700 WARNING Error while requesting https://www.nike.com/vn/t/air-jordan-1-low-se-shoes-FTrFvs/HF1567-200: 403
+2024-09-01T23:18:32.894300+0700 WARNING Error while requesting https://www.nike.com/vn/t/infinityrn-4-blueprint-road-running-shoes-nrNvsn/HJ6648-900: 403
+2024-09-01T23:18:35.028669+0700 SUCCESS Data saved to nike_products.json
+2024-09-01T23:18:35.028869+0700 SUCCESS Execution time: 30.52 seconds - 48 products

@@ -1,57 +1,59 @@
 import asyncio
 import time
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 import httpx
+from loguru import logger
 from utils import (
     ALL_PRODUCT_URL,
+    NUM_SCROLL,
+    HEADER,
     extract_product,
-    get_html_from_driver,
+    get_html,
     get_product_url,
     save_to_json,
     scroll_website,
-    NUM_SCROLL,
-    logger,
 )
-import datetime as dt
-
-from selenium import webdriver
 from tqdm import tqdm
 
 
 async def main():
-    logger.info(f"____Starting scraping at {dt.datetime.now()}____")
     start_time = time.time()
+    logger.info(f"____Starting scraping at {time.strftime('%Y-%m-%d %H:%M:%S')}____")
 
-    # Initial Chrome Driver
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless")  # Run Chrome in headless mode (without GUI)
-    driver = webdriver.Chrome(options=options)
-    driver.get(url=ALL_PRODUCT_URL)
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    # chrome_options.add_argument(f"user-agent={HEADER}")
 
-    # Scroll the website to get all products
-    scroll_website(driver, NUM_SCROLL)
-
-    # Fetch all product URLs
-    async with httpx.AsyncClient() as client:
-        html = await get_html_from_driver(driver)
-        urls = get_product_url(html)
-        tasks = [
-            extract_product(url, client)
-            for url in tqdm(urls, desc="Extracting product")
-        ]
-        products = await asyncio.gather(*tasks)
-
-    # Close the WebDriver
-    driver.quit()
-
-    # Save data to JSON file
-    filename = "nike_products.json"
-    save_to_json(products, filename=filename)
-    logger.success(f"Data saved to {filename}")
-
-    # Calculate and print execution time
-    logger.success(
-        f"Execution time: {time.time() - start_time:.2f} seconds - {len(products)} products"
+    driver = webdriver.Chrome(
+        options=chrome_options, service=Service(executable_path="./chromedriver")
     )
+
+    try:
+        driver.get(ALL_PRODUCT_URL)
+        page_source = await scroll_website(driver, NUM_SCROLL)
+
+        async with httpx.AsyncClient() as client:
+            html = await get_html(url=None, client=client, page_source=page_source)
+            urls = get_product_url(html)
+
+            tasks = [
+                extract_product(url, client)
+                for url in tqdm(urls, desc="Extracting product's details")
+            ]
+            products = await asyncio.gather(*tasks)
+
+        filename = "nike_products.json"
+        save_to_json(products, filename=filename)
+        logger.success(f"Data saved to {filename}")
+
+        logger.success(
+            f"Execution time: {time.time() - start_time:.2f} seconds - {len(products)} products"
+        )
+
+    finally:
+        driver.quit()
 
 
 if __name__ == "__main__":
