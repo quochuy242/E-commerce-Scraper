@@ -16,112 +16,147 @@ HEADER = {
 ALL_PRODUCT_URL = "https://www.nike.com/vn/w/mens-shoes-nik1zy7ok"
 NUM_SCROLL: int | str = "all"
 LOG_FILE = "./log/nike_scraper.txt"
+SCROLL_PAUSE_TIME = 5
 
 
 class Product(BaseModel):
-    title: str
-    subtitle: str
-    price: int
-    url: str
-    image_url: Dict[str, str]
+    """
+    Represents a product with its details.
+    """
+
+    title: str | None = ""
+    subtitle: str | None = ""
+    price: int | None = 0
+    url: str | None = ""
+    image_url: Dict[str, str] | None = {"0": "0"}
 
 
 logger.add(LOG_FILE, format="{time} {level} {message}", level="INFO")
 
 
-async def scroll_website(driver: webdriver.Chrome, num_scroll: int | str) -> None:
+async def scroll_website(driver: webdriver.Chrome, num_scroll: int | str) -> str:
     """
-    Scroll website to load all products
-    """
-    last_height = driver.execute_script("return document.body.scrollHeight")
-
-    if isinstance(num_scroll, str) and num_scroll == "str":
-        while True:
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            await asyncio.sleep(2)
-            new_height = driver.execute_script("return document.body.scrollHeight")
-            if new_height == last_height:
-                logger.info("Scroll to bottom")
-                break
-            last_height = new_height
-    else:
-        for _ in range(num_scroll):
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            await asyncio.sleep(2)
-
-
-async def get_html_from_driver(driver: webdriver.Chrome) -> HTMLParser:
-    """
-    Parsing html from website driver
-    """
-    return HTMLParser(driver.page_source)
-
-
-async def get_html_from_url(url: str, client: httpx.AsyncClient) -> str:
-    """
-    Get HTML from url
+    Scrolls the website to load all products.
 
     Args:
-        url (str): URL to get HTML
-        client (httpx.AsyncClient): HTTPX client
+        driver (webdriver.Chrome): The Selenium WebDriver instance.
+        num_scroll (int | str): Number of times to scroll or "all" for full page scroll.
 
     Returns:
-        str: HTML content
+        str: The page source after scrolling.
     """
-    resp = await client.get(url, headers=HEADER)
+    scroll_count = 0
+    last_height = driver.execute_script("return document.body.scrollHeight")
+
+    while True:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        scroll_count += 1
+        logger.info(f"Scrolling {scroll_count} times")
+        await asyncio.sleep(SCROLL_PAUSE_TIME)
+        new_height = driver.execute_script("return document.body.scrollHeight")
+        if new_height == last_height or (
+            isinstance(num_scroll, int) and scroll_count >= num_scroll
+        ):
+            logger.info("Scroll to bottom")
+            break
+        last_height = new_height
+    return driver.page_source
+
+
+async def get_html(
+    url: str, client: httpx.AsyncClient, page_source: str
+) -> HTMLParser | None:
+    """
+    Fetches HTML content from a URL or uses provided page source.
+    Args:
+        url (str): The URL to fetch HTML from.
+        client (httpx.AsyncClient): The HTTP client for making requests.
+        page_source (str): Pre-fetched page source, if available.
+
+    Returns:
+        HTMLParser | None: Parsed HTML content or None if request fails.
+    """
+    if page_source:
+        return HTMLParser(page_source)
+
     try:
+        resp = await client.get(url, headers=HEADER, follow_redirects=True)
         resp.raise_for_status()
+        return HTMLParser(resp.text)
     except httpx.HTTPStatusError:
-        logger.warning(f"Error while requesting: {resp.status_code}")
-        return ""
-    return HTMLParser(resp.text)
+        logger.warning(f"Error while requesting {url}: {resp.status_code}")
+        return None
 
 
 def get_product_url(html: HTMLParser) -> List[str]:
-    products = html.css("div.product-card__body")
+    """
+    Extracts product URLs from the HTML content.
+
+    Args:
+        html (HTMLParser): Parsed HTML content.
+    Returns:
+        List[str]: List of product URLs.
+    """
     return [
         product.css_first("a.product-card__link-overlay").attributes["href"]
-        for product in tqdm(products, desc="Getting the url of each product")
+        for product in tqdm(
+            html.css("div.product-card__body"), desc="Getting the url of each product"
+        )
     ]
 
 
 def convert_price(price: str) -> int:
+    """
+    Converts a price string to an integer.
+
+    Args:
+        price (str): Price string with currency symbol and commas.
+
+    Returns:
+        int: Price as an integer.
+    """
     return int(price.replace("₫", "").replace(",", ""))
 
 
 def get_image_url(html: HTMLParser) -> Dict[str, str]:
     """
-    Get image url from html
+    Extracts image URLs from the product page.
 
     Args:
-        html (HTMLParser): class HTMLParser
+        html (HTMLParser): Parsed HTML content of the product page.
 
     Returns:
-        Dict[str, str]: Based on {<color>: <image_url>}, if not found, return {'Default': <image_url>}
+        Dict[str, str]: Dictionary of image colors and their URLs.
     """
-    images = html.css_first("div#colorway-picker-container").css("a img")
+    images = html.css_first("div#colorway-picker-container")
     if images:
-        return {image.attributes["alt"]: image.attributes["src"] for image in images}
+        return {
+            img.attributes["alt"]: img.attributes["src"] for img in images.css("a img")
+        }
     else:
-        images: str = (
-            html.css_first("div#hero-image").css_first("img").attributes["src"]
+        image = html.css_first("div#hero-image img")
+        return (
+            {"Default": image.attributes["src"].replace("_1728_", "_144_")}
+            if image
+            else {}
         )
-        images_resize = images.replace("_1728_", "_144_")
-        return {"Default": images_resize}
 
 
 async def extract_product(url: str, client: httpx.AsyncClient) -> Product:
     """
-    Extract product information from url
+    Extracts product details from a given URL.
 
     Args:
-        url (str): URL to extract product information
-        client (httpx.AsyncClient): HTPPX Client
+        url (str): URL of the product page.
+        client (httpx.AsyncClient): The HTTP client for making requests.
 
     Returns:
-        Product: returning product information
+        Product: A Product object containing the extracted details.
     """
-    html = await get_html_from_url(url, client)
+    html = await get_html(url, client, page_source=None)
+    await asyncio.sleep(1)
+    if not isinstance(html, HTMLParser):
+        return Product()
     return Product(
         title=html.css_first("h1#pdp_product_title").text(),
         subtitle=html.css_first("h1#pdp_product_subtitle").text(),
@@ -132,6 +167,13 @@ async def extract_product(url: str, client: httpx.AsyncClient) -> Product:
 
 
 def save_to_json(products: List[Product], filename: str) -> None:
+    """
+    Saves a list of Product objects to a JSON file.
+
+    Args:
+        products (List[Product]): List of Product objects to save.
+        filename (str): Name of the file to save the JSON data.
+    """
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(
             [product.model_dump() for product in products],
